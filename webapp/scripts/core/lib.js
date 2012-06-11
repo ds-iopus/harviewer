@@ -147,6 +147,10 @@ Lib.fireEvent = function(element, event)
         evt.initEvent(event, true, false); // event type,bubbling,cancelable
         return !element.dispatchEvent(evt);
     }
+    else if (document.createEventObject)
+	{
+		$(element).trigger(event);
+	}
 }
 
 Lib.cancelEvent = function(event)
